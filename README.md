@@ -1,1 +1,1 @@
-# thp
+index.php
