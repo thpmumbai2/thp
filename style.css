@@ -1,0 +1,109 @@
+/*
+Theme Name: The Homoeopath
+Theme URI: https://example.com
+Author: Your Name
+Author URI: https://example.com
+Description: A quiet, apothecary-inspired one-page theme for classical homoeopathy practices.
+Version: 1.0
+Requires at least: 6.0
+Requires PHP: 7.4
+Text Domain: the-homoeopath
+*/
+
+:root{
+  --ink:#1b2a22;
+  --parchment:#f3eee1;
+  --parchment-dim:#e8dfc8;
+  --sage:#7c9473;
+  --amber:#b8895a;
+  --line: rgba(243,238,225,0.18);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--ink);
+  color:var(--parchment);
+  font-family:'Jost', sans-serif;
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+::selection{background:var(--amber);color:var(--ink);}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+
+.label{
+  font-family:'JetBrains Mono', monospace;
+  font-size:0.72rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--sage);
+}
+
+/* ---------- NAV ---------- */
+nav.site-nav{
+  position:fixed; top:0; left:0; right:0;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1.6rem 5vw; z-index:10;
+  background:linear-gradient(to bottom, rgba(27,42,34,0.9), transparent);
+}
+nav.site-nav .mark{ font-family:'Fraunces', serif; font-size:1.1rem; }
+nav.site-nav .mark em{font-style:italic;color:var(--amber);}
+nav.site-nav ul{list-style:none; display:flex; gap:2.2rem;}
+nav.site-nav ul li a{ font-size:0.85rem; text-decoration:none; color:var(--parchment-dim); transition:color .25s ease;}
+nav.site-nav ul li a:hover{color:var(--amber);}
+@media (max-width:640px){ nav.site-nav ul{display:none;} }
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100svh; display:flex; flex-direction:column;
+  justify-content:center; align-items:center; text-align:center;
+  position:relative; padding:8rem 6vw 4rem;
+}
+.vial{ width:2px; height:64px; background:var(--sage); margin-bottom:1.4rem; position:relative; opacity:.75;}
+.vial::after{ content:""; position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); width:9px; height:9px; border-radius:50%; background:var(--amber);}
+.hero .eyebrow{margin-bottom:1.4rem;}
+.hero h1{ font-family:'Fraunces', serif; font-weight:500; font-size:clamp(2.8rem, 8vw, 6rem); letter-spacing:-0.01em; line-height:0.98;}
+.hero h1 .amp{display:block; font-style:italic; font-weight:300; color:var(--amber); font-size:0.5em; margin-top:0.6rem;}
+.hero p.sub{max-width:34rem; margin:2rem auto 0; font-size:1.05rem; color:var(--parchment-dim);}
+.hero .dose{margin-top:3rem; display:flex; gap:2.5rem; flex-wrap:wrap; justify-content:center;}
+.hero .dose div{text-align:center;}
+.hero .dose .num{font-family:'Fraunces', serif; font-size:1.6rem; color:var(--amber);}
+.hero .dose .cap{font-family:'JetBrains Mono', monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--parchment-dim); margin-top:0.3rem;}
+.scroll-cue{position:absolute; bottom:2.4rem; left:50%; transform:translateX(-50%); font-family:'JetBrains Mono', monospace; font-size:0.65rem; letter-spacing:0.2em; color:var(--sage); text-transform:uppercase; opacity:.8;}
+
+/* ---------- SECTIONS ---------- */
+section{ padding:7rem 6vw; max-width:1080px; margin:0 auto; border-top:1px solid var(--line);}
+.section-head{display:grid; grid-template-columns:1fr 2.2fr; gap:2rem; margin-bottom:3rem;}
+.section-head h2{font-family:'Fraunces', serif; font-weight:500; font-size:clamp(1.8rem, 3.4vw, 2.6rem);}
+@media (max-width:720px){ .section-head{grid-template-columns:1fr;} }
+
+.about-body{font-size:1.08rem; color:var(--parchment-dim); max-width:42rem;}
+.about-body p + p{margin-top:1.1rem;}
+.about-body strong{color:var(--parchment); font-weight:500;}
+
+.materia{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:1rem;}
+@media (max-width:720px){ .materia{grid-template-columns:1fr;} }
+.materia-item{background:var(--ink); padding:2.4rem 2rem; transition:background .3s ease;}
+.materia-item:hover{background:#22332a;}
+.materia-item .rx{font-family:'JetBrains Mono', monospace; font-size:0.7rem; color:var(--amber); letter-spacing:0.1em;}
+.materia-item h3{font-family:'Fraunces', serif; font-weight:500; font-size:1.25rem; margin:0.9rem 0 0.7rem;}
+.materia-item p{font-size:0.92rem; color:var(--parchment-dim);}
+
+.consult-list{list-style:none;}
+.consult-row{display:grid; grid-template-columns:2.4rem 1fr auto; gap:1.4rem; align-items:baseline; padding:1.3rem 0; border-bottom:1px solid var(--line);}
+.consult-row:first-child{border-top:1px solid var(--line);}
+.consult-row .idx{font-family:'JetBrains Mono', monospace; font-size:0.72rem; color:var(--sage);}
+.consult-row .name{font-family:'Fraunces', serif; font-size:1.2rem; font-weight:500;}
+.consult-row .name span{display:block; font-family:'Jost', sans-serif; font-weight:300; font-size:0.88rem; color:var(--parchment-dim); margin-top:0.25rem;}
+.consult-row .meta{font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:var(--amber); text-align:right; white-space:nowrap;}
+
+footer.site-footer{padding:6rem 6vw 3rem; text-align:center; border-top:1px solid var(--line);}
+footer.site-footer h2{font-family:'Fraunces', serif; font-style:italic; font-weight:400; font-size:clamp(1.8rem, 4vw, 2.6rem); max-width:30rem; margin:0 auto 2rem;}
+.cta{display:inline-block; padding:0.95rem 2.4rem; border:1px solid var(--sage); border-radius:999px; font-family:'JetBrains Mono', monospace; font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; color:var(--parchment); transition:all .3s ease;}
+.cta:hover{background:var(--sage); color:var(--ink);}
+.foot-meta{margin-top:4rem; display:flex; justify-content:center; gap:2.2rem; flex-wrap:wrap; font-family:'JetBrains Mono', monospace; font-size:0.68rem; letter-spacing:0.1em; color:var(--parchment-dim); text-transform:uppercase;}
+
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+a:focus-visible, button:focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
